@@ -1,10 +1,10 @@
 f = open('inputs/day02_input','r+')
-max_cubes = {"red":12, "green":13, "blue":14}
 
 
 def first_part():
+    max_cubes = {"red":12, "green":13, "blue":14}
     total_sum = 0
-    
+
     for line in f:
         game_id, game = line.strip().split(": ")
         is_line_possible = True
@@ -12,8 +12,8 @@ def first_part():
         sets = game.split('; ')
         for gameset in sets:
             sets = gameset.split(", ")
-            for cubes in sets: 
-                value, color = cubes.split(" ")
+            for cube in sets: 
+                value, color = cube.split(" ")
                 if int(value) > max_cubes[color]:
                     is_line_possible = False
             
@@ -34,8 +34,8 @@ def second_part():
         sets = game.split('; ')
         for gameset in sets:
             sets = gameset.split(", ")
-            for cubes in sets: 
-                value, color = cubes.split(" ")
+            for cube in sets: 
+                value, color = cube.split(" ")
                 if int(value) > min_cubes[color]:
                     min_cubes[color] = int(value)
 
